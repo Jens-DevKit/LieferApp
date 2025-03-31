@@ -109,15 +109,13 @@ function renderFilter(filter) {
     showFilterLogo.innerHTML = "";
     console.log(filter);
 
-if (result) {
-        // HTML-Elemente erstellen
+    if (result) {
         const imgElement = document.createElement("img");
         imgElement.src = result.picture;
         imgElement.classList.add('imgContainer');
         const nameElement = document.createElement("h2");
-        nameElement.textContent = result.name; // Name als Überschrift
+        nameElement.textContent = result.name;
 
-        // Elemente in den Container einfügen
         filterContainer.appendChild(imgElement);
         filterContainer.appendChild(nameElement);
     } else {
@@ -125,15 +123,6 @@ if (result) {
     }
     console.log(filter);
 }
-
-
-
-
-
-
-
-
-
 
 function renderOrderList(filterCategory = 'alle') {
     const CONTAINER = document.getElementById('containerOrder');
