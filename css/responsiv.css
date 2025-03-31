@@ -104,14 +104,5 @@
   .iconImg {
     height: 1.5em;
   }
-
-  .padding {
-    padding: 7px;
-  }
-}
-
-@media (max-width: 350px) {
-  .padding {
-    padding: 5px;
-  }
+  
 }
