@@ -1,0 +1,29 @@
+#shoppingBasket {
+    position: sticky;
+    background-color: rgba(179, 227, 216, 0.5);
+    z-index: 5;
+}
+
+.basketBorder {
+    border: solid rgba(100, 208, 183, 0.7);
+    border-width: 0px 2px 0px 2px;
+}
+
+.basketCalc {
+    min-height: calc(100vh - 42em);
+}
+
+.basketCard {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding-bottom: 8px;
+}
+
+.deliverGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: rgba(100, 208, 183);
+    padding: 0 8px 8px 8px;
+    margin: 0 auto;
+}

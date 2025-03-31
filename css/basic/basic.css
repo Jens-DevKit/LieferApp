@@ -1,0 +1,117 @@
+.backgroundimg {
+    background-image: url('../../img/healthy.jpg');
+    height: 12em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body {
+    margin: 0;
+    font-size: 16px;
+    background-image: url('../../img/food.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+button,
+input {
+    font-size: 1em;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 5px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+button:hover {
+    background-color: rgba(207, 240, 240, 0.5);
+}
+
+.active {
+    background-color: rgba(207, 240, 240, 0.5);
+}
+
+a {
+    text-decoration: none;
+    color: blue;
+    font-size: 1.2em;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+main {
+    min-height: calc(100vh - 14em);
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    margin: 0 auto;
+    background-color: beige;
+    z-index: -3;
+    padding-top: 7em;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2em;
+    background-color: rgba(100, 208, 183);
+    padding: 0.5em;
+    margin-top: 0;
+}
+
+h3 {
+    padding: 0;
+    margin: 2px;
+}
+
+h4 {
+    font-size: 1.2em;
+}
+
+.zeroMargin {
+    margin: 0;
+}
+
+.nav {
+    display: flex;
+}
+
+.d_none {
+    display: none;
+}
+
+.textPadding {
+    padding: 1em;
+}
+
+.basketPadding {
+    padding: 6px;
+}
+
+
+.boxShadow {
+    position: relative;
+    z-index: 5;
+    -webkit-box-shadow: 5px 5px 20px 5px rgb(35, 52, 48);
+    box-shadow: 4px 6px 20px 0px rgba(47, 109, 95, 0.568);
+}
+
+.padding {
+    padding: 10px;
+}
+
+.paddingTwo {
+    padding: 2px;
+}
+
+.maxWidth {
+    max-width: 1440px;
+    margin: 0 auto;
+}

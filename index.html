@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LieferAPP</title>
+    <link rel="icon" type="image/vnd.icon" href="./img/Favicon/favicon-16x16.png">
+
+    <link rel="stylesheet" href="./css/basic/basic.css">
+    <link rel="stylesheet" href="./css/basic/header.css">
+    <link rel="stylesheet" href="./css/basic/footer.css">
+    <link rel="stylesheet" href="./css/shoppingBasket.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/responsiv.css">
+
+</head>
+
+<body onload="init()">
+
+    <header class="boxShadow" style="position: fixed; width: -webkit-fill-available; z-index: 10;">
+
+        <div class="header maxWidth">
+
+            <a href="./index.html" onclick="saveReloadSHOPPING_BAG()"><img id="logo" src="./img/Logo/Logo.png"
+                    alt=""></a>
+
+            <div id="searchBox" class="searchBox">
+                <input id="searchInput" class="padding" type="text" placeholder="z.B. Vegan oder Halal"
+                    onkeyup="searchFood()"><button class="padding" type="submit">Suchen</button>
+            </div>
+
+            <div id="nav" class="nav">
+                <a href="./kontakt/kontakt.html" target="_blank"><button id="contactBtn" class="respBtn padding d_none">Kontakt</button></a>
+                <button onclick="toggleMenu()" class="padding"><img class="navIcon" src="./img/bugerMenu.png"
+                        alt=""></button>
+                <button onclick="toggleShoppingBag()" id="shoppingCartBtn" class="paddingTwo"><img
+                        class="iconShoppingCart" src="./img/shoppingbag.png" alt=""></button>
+            </div>
+
+        </div>
+    </header>
+
+
+
+    <main id="main_container" class="maxWidth">
+        <div id="menu_container" class="mainContainer">
+            <div class="backgroundimg">
+            </div>
+
+
+
+            <div id="restaurant" class="businessLogo textPadding">
+                <h1 class="zeroMargin center">Baratie</h1>
+
+                <div>
+                    <h3 class="zeroMargin center column">
+                        <div id="rating-container">
+                            <span class="star" data-value="1">&#9734;</span>
+                            <span class="star" data-value="2">&#9734;</span>
+                            <span class="star" data-value="3">&#9734;</span>
+                            <span class="star" data-value="4">&#9734;</span>
+                            <span class="star" data-value="5">&#9734;</span>
+                        </div>
+                        <p id="average-rating">Durchschnittliche Bewertung: 4.2</p>
+                    </h3>
+                    <p class="center">Ein schönes Schiffsrestaurant, welches durch ihre Showküche bekannt ist</p>
+                </div>
+
+
+
+            </div>
+
+            <div class="grid-container">
+                <button id="DAYSALES" class="grid-item padding"
+                    onclick="toggleFilter('angebote', this)">Angebote</button>
+                <button id="KIDS" class="grid-item padding" onclick="toggleFilter('kids menü', this)">Kids
+                    Menü</button>
+                <button id="LITTLEMEAL" class="grid-item padding" onclick="toggleFilter('kleiner hunger', this)">Kleiner
+                    Hunger</button>
+                <button id="APPETIZER" class="grid-item padding"
+                    onclick="toggleFilter('vorspeise', this)">Vorspeise</button>
+                <button id="MAIN_DISH" class="grid-item padding"
+                    onclick="toggleFilter('hauptgang', this)">Hauptgang</button>
+                <button id="DESSERT" class="grid-item padding" onclick="toggleFilter('dessert', this)">Dessert</button>
+            </div>
+
+
+            <div class="navContainer">
+                <div id="IMG_CONTAINER" class="imgContainer"></div>
+                <h2 id="mainTitle" class="boxShadow">Hauptgericht</h2>
+            </div>
+
+
+            <div id="containerOrder">
+
+            </div>
+
+
+        </div>
+
+
+        <div id="shoppingBasket" class="basketBorder d_none">
+            <h2 class="boxShadow">Warenkorb</h2>
+            <div class="center"><button class="padding" onclick="loadSHOPPING_BAG()">Letzte Bestellung</button></div>
+            <div id="shoppingBag" class="basketCalc textPadding">
+
+            </div>
+
+            <div id="priceContainer" class="center">
+
+            </div>
+
+            <div class="center basketPadding">
+                <button onclick="deleteBasket()">
+                    <img class="deleteIconImg" src="./img/deletebutton.png" alt="">
+                </button>
+            </div>
+
+            <div class="deliverGrid boxShadow">
+                <div class="center">Kostenlos liefern ab 20€</div>
+
+
+                <div class="center">
+                    <img id="deliverKost" class="iconImg" src="./img/redbtn.png" alt="">
+                    <img id="deliverFree" class="iconImg" src="./img/greenBtn.png" alt="">
+                    <p id="deliverText" class="basketPadding"></p>
+                </div>
+
+
+                <button id="deliverBtn" onclick="deliver(this)" class="center padding">
+                    <img class="iconImg" src="./img/deliver.png" alt="">
+                    <div id="deliver" class="basketPadding">Liefern +3€</div>
+                </button>
+                <button id="pickupBtn" onclick="pickup(this)" class="center padding">
+                    <img class="iconImg" src="./img/take_out.png" alt="">
+                    <div class="basketPadding">Abholen</div>
+                </button>
+            </div>
+
+
+            <div class="textPadding center"><button class="padding" onclick="saveSHOPPING_BAG()">Speichern
+                    <div id="totalPriceContainer" class="center">
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer maxWidth">
+            <a href="./index.html" onclick="saveReloadSHOPPING_BAG()"><img id="logo" class="footerLogo"
+                    src="./img/Logo/Logo.png" alt=""></a>
+
+            <a href="./copyright/copyright.html" target="_blank">Copyright</a>
+            <a href="./datenschutz/datenschutz.html" target="_blank">Datenschutz</a>
+            <a href="./impressum/impressum.html" target="_blank">Impessum</a>
+
+
+            <div><a href="https://www.facebook.com/" target="_blank" onclick="saveReloadSHOPPING_BAG()"><img
+                        class="iconImg" src="./img/facebook_logo.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/" target="_blank" onclick="saveReloadSHOPPING_BAG()"><img
+                        class="iconImg" src="./img/instagrram_logo.png" alt="Instagram"></a>
+                <a href="https://www.tripadvisor.de/" target="_blank" onclick="saveReloadSHOPPING_BAG()"><img
+                        class="iconImg" src="./img/tripadvisor_logo.png" alt="Tripadvisor"></a>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+</body>
+
+<script src="./javascript/script.js"></script>
+<script src="./javascript/calc.js"></script>
+<script src="./javascript/order.js"></script>
+<script src="./javascript/like.js"></script>
+
+</html>
