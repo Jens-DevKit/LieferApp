@@ -4,37 +4,37 @@ let filterImg = [
     {
         name: 'Unsere Angebote',
         filter: 'angebote',
-        picture: '../img/percent.jpg',
+        picture: '../LieferAPP/img/percent.jpg',
     },
     {
         name: 'Für die Kleinen',
         filter: 'kids menü',
-        picture: '../img/kids.jpg',
+        picture: '../LieferAPP/img/kids.jpg',
     },
     {
         name: 'Gegen den Kleinen Hunger',
         filter: 'kleiner hunger',
-        picture: '../img/pancakes.jpg',
+        picture: '../LieferAPP/img/pancakes.jpg',
     },
     {
         name: 'Vorspeisen',
         filter: 'vorspeise',
-        picture: '../img/tomatoes.jpg',
+        picture: '../LieferAPP/img/tomatoes.jpg',
     },
     {
         name: 'Hauptgericht',
         filter: 'hauptgang',
-        picture: '../img/fish.jpg',
+        picture: '../LieferAPP/img/fish.jpg',
     },
     {
         name: 'Dessert',
         filter: 'dessert',
-        picture: '../img/dessert.jpg',
+        picture: '../LieferAPP/img/dessert.jpg',
     },
     {
         name: 'Speisekarte',
         filter: 'all',
-        picture: '../img/table.jpg',
+        picture: '../LieferAPP/img/table.jpg',
     }
 ];
 
@@ -102,12 +102,9 @@ function toggleFilter(filter, button) {
 }
 
 function renderFilter(filter) {
-    console.log(filter);
     const result = filterImg.find(item => item.filter === filter);
-    console.log(filter);
     const showFilterLogo = document.getElementById('filterContainer');
     showFilterLogo.innerHTML = "";
-    console.log(filter);
 
     if (result) {
         const imgElement = document.createElement("img");
@@ -121,7 +118,6 @@ function renderFilter(filter) {
     } else {
         renderFilter(all)
     }
-    console.log(filter);
 }
 
 function renderOrderList(filterCategory = 'alle') {
