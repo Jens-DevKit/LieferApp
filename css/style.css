@@ -57,19 +57,17 @@
     height: 10px;
 }
 
-.navContainer {
+.filterContainer {
     display: flex;
     flex-direction: column;
 
 }
 
 .imgContainer {
-    background-image: url('../img/table.jpg');
-    height: 10em;
-    padding-bottom: 2em;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    height: 15em;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 .menuCard {

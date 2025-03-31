@@ -14,8 +14,10 @@ function handleStarEvent(stars, currentRating, updateRating) {
 
         star.addEventListener('click', () => {
             currentRating = index + 1;
+            console.log(currentRating);
             updateRating(currentRating);
-            saveRATING_STARS();
+            console.log(currentRating);
+            saveRATING_STARS(currentRating);
         });
     });
 }
@@ -46,7 +48,8 @@ if (!currentRating) {
     });
 }
 
-function saveRATING_STARS() {
+function saveRATING_STARS(currentRating) {
+    console.log('Test' + currentRating);
     localStorage.setItem('RATING_STARS', JSON.stringify(currentRating));
 }
 

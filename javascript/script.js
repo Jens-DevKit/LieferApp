@@ -1,10 +1,48 @@
 let SHOPPING_BAG = [];
 let activeButton = null;
+let filterImg = [
+    {
+        name: 'Unsere Angebote',
+        filter: 'angebote',
+        picture: '../img/percent.jpg',
+    },
+    {
+        name: 'Für die Kleinen',
+        filter: 'kids menü',
+        picture: '../img/kids.jpg',
+    },
+    {
+        name: 'Gegen den Kleinen Hunger',
+        filter: 'kleiner hunger',
+        picture: '../img/pancakes.jpg',
+    },
+    {
+        name: 'Vorspeisen',
+        filter: 'vorspeise',
+        picture: '../img/tomatoes.jpg',
+    },
+    {
+        name: 'Hauptgericht',
+        filter: 'hauptgang',
+        picture: '../img/fish.jpg',
+    },
+    {
+        name: 'Dessert',
+        filter: 'dessert',
+        picture: '../img/dessert.jpg',
+    },
+    {
+        name: 'Speisekarte',
+        filter: 'all',
+        picture: '../img/table.jpg',
+    }
+];
 
 function init() {
     displayFood(ORDER_LIST);
     renderBasket();
     loadReloadSHOPPING_BAG();
+    loadRATING_STARS()
     handleStarEvent(stars, currentRating, updateRating);
 }
 
@@ -54,12 +92,48 @@ function toggleFilter(filter, button) {
         button.classList.remove('active');
         activeButton = null;
         renderOrderList('alle');
+        filter = ('all');
     } else {
         button.classList.add('active');
         activeButton = button;
         renderOrderList(filter);
     }
+    renderFilter(filter);
 }
+
+function renderFilter(filter) {
+    console.log(filter);
+    const result = filterImg.find(item => item.filter === filter);
+    console.log(filter);
+    const showFilterLogo = document.getElementById('filterContainer');
+    showFilterLogo.innerHTML = "";
+    console.log(filter);
+
+if (result) {
+        // HTML-Elemente erstellen
+        const imgElement = document.createElement("img");
+        imgElement.src = result.picture;
+        imgElement.classList.add('imgContainer');
+        const nameElement = document.createElement("h2");
+        nameElement.textContent = result.name; // Name als Überschrift
+
+        // Elemente in den Container einfügen
+        filterContainer.appendChild(imgElement);
+        filterContainer.appendChild(nameElement);
+    } else {
+        renderFilter(all)
+    }
+    console.log(filter);
+}
+
+
+
+
+
+
+
+
+
 
 function renderOrderList(filterCategory = 'alle') {
     const CONTAINER = document.getElementById('containerOrder');
