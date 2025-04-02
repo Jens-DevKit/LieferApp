@@ -45,7 +45,9 @@ function renderPrice() {
             </p>
         </div>
     `;
-
+    if (orderValue === 0) {
+        document.getElementById('buyBtn').classList.remove('activeBtn');
+    }
     priceContainer.innerHTML = priceContent;
     isUpdatingPrice = false;
 
@@ -58,6 +60,7 @@ function renderPrice() {
 
     totalPriceContainer.innerHTML = totalPriceContent;
     isUpdatingPrice = false;
+    document.getElementById('shoppingCartBtn').classList.add('activeBtn');
 }
 
 

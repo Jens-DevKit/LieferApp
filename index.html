@@ -50,7 +50,7 @@
                         class="respBtn padding d_none">Kontakt</button></a>
                 <button onclick="toggleMenu()" class="padding"><img class="navIcon" src="./img/bugerMenu.png"
                         alt=""></button>
-                <button onclick="toggleShoppingBag()" id="shoppingCartBtn" class="paddingTwo"><img
+                <button onclick="toggleShoppingBag()" id="shoppingCartBtn" class="paddingTwo"><img id="iconShoppingCart"
                         class="iconShoppingCart" src="./img/shoppingbag.png" alt=""></button>
             </div>
 
@@ -69,7 +69,7 @@
             <div id="restaurant" class="businessLogo textPadding">
                 <h1 class="zeroMargin center">Baratie</h1>
 
-                <div>
+                <div class="starsContainer">
                     <h3 class="zeroMargin center column">
                         <div id="rating-container">
                             <span class="star" data-value="1">&#9734;</span>
@@ -155,7 +155,7 @@
             </div>
 
 
-            <div class="textPadding center"><button class="padding" onclick="sendSHOPPING_BAG()">
+            <div class="textPadding center"><button class="padding" id="buyBtn" onclick="sendSHOPPING_BAG()">
                     <div id="totalPriceContainer" class="center">
                 </button>
             </div>
