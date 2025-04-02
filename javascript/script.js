@@ -296,11 +296,3 @@ function returnBtn() {
     });
     deleteBasket()
 }
-
-function sendSHOPPING_BAG() {
-    document.body.classList.add('dontScroll');
-    document.getElementById('modal').classList.remove('backgroundOverlay');
-    
-    
-    saveSHOPPING_BAG()
-}

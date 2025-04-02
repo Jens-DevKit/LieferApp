@@ -123,7 +123,6 @@ function pickup(button) {
         activeDeliveryButton = button;
         deliverService = false;
     }
-
     renderPrice();
 }
 
@@ -132,5 +131,41 @@ function deliverCheck() {
         delieverPrice = 3;
     } else {
         delieverPrice = 0;
+    }
+}
+
+function sendSHOPPING_BAG() {
+
+    if (orderValue === 0 || activeDeliveryButton === null) {
+        const textContainer = document.getElementById('modalContent');
+        textContainer.innerHTML = "";
+
+
+        const textContent = `
+        <p style="font-size: 1.2em;">Bitte packen Sie ihre Waren in den Warenkorb und geben sie die Lieferung oder Abholung an. <br>
+        Danke für Ihr Verständnis!
+            </p>
+    `;
+        textContainer.innerHTML = textContent;
+        document.body.classList.add('dontScroll');
+        document.getElementById('modal').classList.remove('backgroundOverlay');
+
+    } else {
+        const textContainer = document.getElementById('modalContent');
+        textContainer.innerHTML = "";
+
+
+        const textContent = `
+        <p style="font-size: 1.2em;">Leider konnten wir die Bestellung nicht weiterleiten, bitte versuchen sie es
+                später noch einmal.</p>
+            <p>Wir haben Ihre Bestellung Gespeichert, Sie können diese einfach aufrufen indem Sie auf Letzte Bestellung
+                im
+                Warenkorb klicken. Danke für Ihr verständnis
+            </p>
+    `;
+        textContainer.innerHTML = textContent;
+        document.body.classList.add('dontScroll');
+        document.getElementById('modal').classList.remove('backgroundOverlay');
+        saveSHOPPING_BAG()
     }
 }
