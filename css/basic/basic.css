@@ -95,7 +95,6 @@ h4 {
     padding: 6px;
 }
 
-
 .boxShadow {
     position: relative;
     z-index: 5;
@@ -114,4 +113,8 @@ h4 {
 .maxWidth {
     max-width: 1440px;
     margin: 0 auto;
+}
+
+.dontScroll {
+    overflow: hidden;
 }

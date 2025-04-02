@@ -18,6 +18,21 @@
 
 <body onload="init()">
 
+    <div class="overlay backgroundOverlay" onclick="returnBtn()" id="modal">
+        <div class=" overlayText" id="modalContent">
+
+            <p style="font-size: 1.2em;">Leider konnten wir die Bestellung nicht weiterleiten, bitte versuchen sie es
+                später noch einmal.</p>
+            <p>Wir haben Ihre Bestellung Gespeichert, Sie können diese einfach aufrufen indem Sie auf Letzte Bestellung
+                im
+                Warenkorb klicken. Danke für Ihr verständnis
+            </p>
+
+            <button onclick="" id="returnBtn"><img class="deleteIconImg"  onclick="returnBtn()"
+                    src="./img/deletebutton.png" alt="Vorher"></button>
+        </div>
+    </div>
+
     <header class="boxShadow" style="position: fixed; width: -webkit-fill-available; z-index: 10;">
 
         <div class="header maxWidth">
@@ -140,7 +155,7 @@
             </div>
 
 
-            <div class="textPadding center"><button class="padding" onclick="saveSHOPPING_BAG()">Speichern
+            <div class="textPadding center"><button class="padding" onclick="sendSHOPPING_BAG()">
                     <div id="totalPriceContainer" class="center">
                 </button>
             </div>

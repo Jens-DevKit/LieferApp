@@ -33,15 +33,30 @@ function renderPrice() {
     let totalPrice = orderValue + delieverPrice;
 
     const priceContent = `
-        <h4 class="center">
-            Gesamt: ${totalPrice}€
-        </h4>
+        <div style="display: grid;
+    grid-template-columns: repeat(3, 3fr);">
+            <p>Gesamt:</p>
+            <p><strong>${orderValue}€</strong></p>
+            <p>Lieferkosten:</p>
+            <p><strong>${delieverPrice}€</strong></p>
+        </div>
     `;
 
     priceContainer.innerHTML = priceContent;
     isUpdatingPrice = false;
 
+    const totalPriceContainer = document.getElementById('totalPriceContainer');
+    totalPriceContainer.innerHTML = "";
+
+    const totalPriceContent = `
+        <h3 class="center">Zum Bezahlen: ${totalPrice}€</h3>
+    `;
+
+    totalPriceContainer.innerHTML = totalPriceContent;
+    isUpdatingPrice = false;
 }
+
+
 
 document.addEventListener('PRICE_UPDATED', () => {
     orderValue = parseFloat(calculateTotalPrice());

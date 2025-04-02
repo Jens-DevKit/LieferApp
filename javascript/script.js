@@ -277,3 +277,20 @@ function toggleMenu() {
     document.getElementById('contactBtn').classList.toggle('respBtn');
     document.getElementById('searchBox').classList.toggle('respBtn');
 }
+
+function returnBtn() {
+    document.getElementById('modal').classList.add('backgroundOverlay');
+
+    document.getElementById('modalContent').addEventListener('click', function (event) {
+        event.stopPropagation(event);
+    });
+    
+}
+
+function sendSHOPPING_BAG() {
+    document.body.classList.add('dontScroll');
+    document.getElementById('modal').classList.remove('backgroundOverlay');
+    
+    
+    saveSHOPPING_BAG()
+}
