@@ -196,6 +196,7 @@ function renderBasket() {
     SHOPPING_BAG.forEach((i) => {
         const bag = document.createElement('div');
         bag.classList.add('basketCard');
+        bag.classList.add('padding');
 
         const totalPrice = (i.price * i.quantity).toFixed(2);
 
@@ -287,5 +288,4 @@ function returnBtn() {
     document.getElementById('modalContent').addEventListener('click', function (event) {
         event.stopPropagation(event);
     });
-    deleteBasket()
 }

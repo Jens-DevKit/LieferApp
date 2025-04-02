@@ -78,6 +78,11 @@
   a {
     font-size: 1em;
   }
+
+  .sellContainer {
+    position: block;
+    width: -webkit-fill-available;
+}
 }
 
 @media (max-width: 490px) {

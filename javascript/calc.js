@@ -142,30 +142,29 @@ function sendSHOPPING_BAG() {
 
 
         const textContent = `
-        <p style="font-size: 1.2em;">Bitte packen Sie ihre Waren in den Warenkorb und geben sie die Lieferung oder Abholung an. <br>
-        Danke für Ihr Verständnis!
-            </p>
+        <p style="font-size: 1.5em;"><strong>Fehler!</strong> <br><br>
+        <span style="font-size: 1em;">Prüfen Sie Ihre Waren und die Liefereinstellung. <br>
+        Danke für Ihr Verständnis!</span></p>
     `;
         textContainer.innerHTML = textContent;
         document.body.classList.add('dontScroll');
         document.getElementById('modal').classList.remove('backgroundOverlay');
-
     } else {
         const textContainer = document.getElementById('modalContent');
         textContainer.innerHTML = "";
 
 
         const textContent = `
-        <p style="font-size: 1.2em;">Leider konnten wir die Bestellung nicht weiterleiten, bitte versuchen sie es
-                später noch einmal.</p>
-            <p>Wir haben Ihre Bestellung Gespeichert, Sie können diese einfach aufrufen indem Sie auf Letzte Bestellung
-                im
-                Warenkorb klicken. Danke für Ihr verständnis
-            </p>
+        <p style="font-size: 1.5em;"><strong>Fehler!</strong> <br><br>
+        <span style="font-size: 1em;">Leider konnten wir die Bestellung nicht weiterleiten, bitte versuchen sie es
+        später noch einmal. <br>
+        Danke für Ihr Verständnis!</span></p>
+        
     `;
         textContainer.innerHTML = textContent;
         document.body.classList.add('dontScroll');
         document.getElementById('modal').classList.remove('backgroundOverlay');
-        saveSHOPPING_BAG()
+        saveSHOPPING_BAG();
+        deleteBasket();
     }
 }

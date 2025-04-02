@@ -31,13 +31,6 @@
     <div class="overlay backgroundOverlay" onclick="returnBtn()" id="modal">
         <div class=" overlayText" id="modalContent">
 
-            <p style="font-size: 1.2em;">Leider konnten wir die Bestellung nicht weiterleiten, bitte versuchen sie es
-                später noch einmal.</p>
-            <p>Wir haben Ihre Bestellung Gespeichert, Sie können diese einfach aufrufen indem Sie auf Letzte Bestellung
-                im
-                Warenkorb klicken. Danke für Ihr verständnis
-            </p>
-
             <button onclick="" id="returnBtn"><img class="deleteIconImg" onclick="returnBtn()"
                     src="./img/deletebutton.png" alt="Vorher"></button>
         </div>
@@ -129,45 +122,48 @@
         <div id="shoppingBasket" class="basketBorder d_none">
             <h2 class="boxShadow">Warenkorb</h2>
             <div class="center"><button class="padding" onclick="loadSHOPPING_BAG()">Letzte Bestellung</button></div>
-            <div id="shoppingBag" class="basketCalc textPadding">
-
-            </div>
-
-            <div id="priceContainer" class="center">
-
-            </div>
-
-            <div class="center basketPadding">
-                <button onclick="deleteBasket()">
-                    <img class="deleteIconImg" src="./img/deletebutton.png" alt="">
-                </button>
-            </div>
-
-            <div class="deliverGrid boxShadow">
-                <div class="center">Kostenlos liefern ab 20€</div>
+            <div id="shoppingBag" class="basketCalc"></div>
 
 
-                <div class="center">
-                    <img id="deliverKost" class="iconImg" src="./img/redbtn.png" alt="">
-                    <img id="deliverFree" class="iconImg" src="./img/greenBtn.png" alt="">
-                    <p id="deliverText" class="basketPadding"></p>
+
+            <div class="sellContainer">
+
+                <div class="center basketPadding">
+                    <button onclick="deleteBasket()">
+                        <img class="deleteIconImg" src="./img/deletebutton.png" alt="">
+                    </button>
+                </div>
+
+                <div id="priceContainer" class="center"></div>
+
+
+                <div class="deliverGrid boxShadow zeroMargin">
+                    <div class="center">Kostenlos liefern ab 20€</div>
+
+
+                    <div class="center zeroMargin">
+                        <img id="deliverKost" class="iconImg" src="./img/redbtn.png" alt="">
+                        <img id="deliverFree" class="iconImg" src="./img/greenBtn.png" alt="">
+                        <p id="deliverText" class="basketPadding"></p>
+                    </div>
+
+
+                    <button id="deliverBtn" onclick="deliver(this)" class="center">
+                        <img class="iconImg" src="./img/deliver.png" alt="">
+                        <div id="deliver" class="basketPadding">Liefern +3€</div>
+                    </button>
+                    <button id="pickupBtn" onclick="pickup(this)" class="center">
+                        <img class="iconImg" src="./img/take_out.png" alt="">
+                        <div class="basketPadding">Abholen</div>
+                    </button>
                 </div>
 
 
-                <button id="deliverBtn" onclick="deliver(this)" class="center padding">
-                    <img class="iconImg" src="./img/deliver.png" alt="">
-                    <div id="deliver" class="basketPadding">Liefern +3€</div>
-                </button>
-                <button id="pickupBtn" onclick="pickup(this)" class="center padding">
-                    <img class="iconImg" src="./img/take_out.png" alt="">
-                    <div class="basketPadding">Abholen</div>
-                </button>
-            </div>
 
-
-            <div class="textPadding center"><button class="padding" id="buyBtn" onclick="sendSHOPPING_BAG()">
-                    <div id="totalPriceContainer" class="center">
-                </button>
+                <div class="textPadding center"><button class="padding" id="buyBtn" onclick="sendSHOPPING_BAG()">
+                        <div id="totalPriceContainer" class="center">
+                    </button>
+                </div>
             </div>
         </div>
 

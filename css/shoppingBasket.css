@@ -10,14 +10,17 @@
 }
 
 .basketCalc {
-    min-height: calc(100vh - 50em);
+    min-height: calc(100% - 30em);
 }
 
 .basketCard {
     display: flex;
     justify-content: space-between;
     text-align: center;
-    padding-bottom: 8px;
+    padding: 8px;
+    border: solid rgba(100, 208, 183, 0.7);
+    border-radius: 8px;
+    margin: 8px;
 }
 
 .deliverGrid {
@@ -26,4 +29,13 @@
     background-color: rgba(100, 208, 183);
     padding: 0 8px 8px 8px;
     margin: 0 auto;
+}
+
+.sellContainer {
+    position: sticky;
+    z-index: 10;
+    bottom: 7em;
+    background-color: rgba(179, 227, 216);
+    border: solid rgba(100, 208, 183, 0.3);
+    border-width: 2px 0px 2px 0px;
 }
