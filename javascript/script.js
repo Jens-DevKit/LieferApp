@@ -274,14 +274,6 @@ function toggleShoppingBag() {
     document.getElementById('shoppingCartBtn').classList.remove('activeBtn');
 }
 
-window.addEventListener('resize', function () {
-    if (window.innerWidth > 600) {
-        document.getElementById('main_container').classList.remove('block');
-        document.getElementById('menu_container').classList.remove('d_none');
-        document.getElementById('shoppingBasket').classList.add('d_none');
-    }
-});
-
 function toggleMenu() {
     document.getElementById('contactBtn').classList.toggle('d_none');
     document.getElementById('contactBtn').classList.toggle('respBtn');
@@ -290,6 +282,7 @@ function toggleMenu() {
 
 function returnBtn() {
     document.getElementById('modal').classList.add('backgroundOverlay');
+    document.body.classList.remove('dontScroll');
 
     document.getElementById('modalContent').addEventListener('click', function (event) {
         event.stopPropagation(event);
