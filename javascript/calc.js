@@ -34,11 +34,15 @@ function renderPrice() {
 
     const priceContent = `
         <div style="display: grid;
-    grid-template-columns: repeat(3, 3fr);">
-            <p>Gesamt:</p>
-            <p><strong>${orderValue}€</strong></p>
-            <p>Lieferkosten:</p>
-            <p><strong>${delieverPrice}€</strong></p>
+    grid-template-columns: repeat(3, 1fr);">
+            <p>Gesamt:</p><p></p>
+            <p style="text-align: end;"><strong>
+                ${orderValue}€</strong>
+            </p>
+            <p>Lieferkosten:</p><p></p>
+            <p style="text-align: end;"><strong>
+                ${delieverPrice}€</strong>
+            </p>
         </div>
     `;
 

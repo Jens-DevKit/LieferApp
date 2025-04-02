@@ -137,15 +137,3 @@
 .backgroundOverlay {
     z-index: -1;
 }
-
-.price-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Zentriert die Preise */
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.price-box p {
-    margin: 5px 0; /* Abstand zwischen den Zeilen */
-}

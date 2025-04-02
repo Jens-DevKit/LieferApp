@@ -284,7 +284,7 @@ function returnBtn() {
     document.getElementById('modalContent').addEventListener('click', function (event) {
         event.stopPropagation(event);
     });
-    
+    deleteBasket()
 }
 
 function sendSHOPPING_BAG() {
