@@ -4,19 +4,10 @@ let averageRating = 4.2;
 
 function handleStarEvent(stars, currentRating, updateRating) {
     stars.forEach((star, index) => {
-        star.addEventListener('mouseover', () => {
-            toggleHoverEffect(stars, index);
-        });
-
-        star.addEventListener('mouseout', () => {
-            removeHoverEffect(stars);
-        });
-
+        star.addEventListener('mouseover', () => toggleHoverEffect(stars, index));
+        star.addEventListener('mouseout', () => removeHoverEffect(stars));
         star.addEventListener('click', () => {
-            currentRating = index + 1;
-            console.log(currentRating);
-            updateRating(currentRating);
-            console.log(currentRating);
+            updateRating(currentRating = index + 1);
             saveRATING_STARS(currentRating);
         });
     });
@@ -49,7 +40,6 @@ if (!currentRating) {
 }
 
 function saveRATING_STARS(currentRating) {
-    console.log('Test' + currentRating);
     localStorage.setItem('RATING_STARS', JSON.stringify(currentRating));
 }
 

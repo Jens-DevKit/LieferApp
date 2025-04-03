@@ -45,7 +45,7 @@ document.addEventListener('PRICE_UPDATED', () => {
     updateDeliveryStatus(isDeliveryFree, orderValue > 0 ? delieverPrice : 3);
 });
 
-function updateDeliveryStatus(isFree, deliveryPrice) {
+function updateDeliveryStatus(isFree) {
     const kost = document.getElementById('deliverKost');
     const free = document.getElementById('deliverFree');
     const text = document.getElementById('deliverText');
@@ -54,7 +54,7 @@ function updateDeliveryStatus(isFree, deliveryPrice) {
     kost.classList.toggle('d_none', isFree);
     free.classList.toggle('d_none', !isFree);
     text.innerHTML = isFree ? "Freie Lieferung" : "Noch nicht erreicht";
-    button.innerHTML = isFree ? "Liefern" : `Liefern + ${deliveryPrice}€`;
+    button.innerHTML = isFree ? "Liefern" : `Liefern + 3€`;
 }
 
 function deliver(button) {

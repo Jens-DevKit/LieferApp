@@ -80,9 +80,17 @@ function generateFoodContent(i) {
 
 function toggleFilter(filter, button) {
     if (activeButton) activeButton.classList.toggle('active', activeButton !== button);
-    activeButton = activeButton === button ? null : button;
-    renderOrderList(activeButton ? filter : 'all');
-    renderFilter(activeButton ? filter : 'all');
+    if (activeButton === button) {
+        button.classList.remove('active');
+        activeButton = null;
+        renderOrderList('alle');
+        filter = ('all');
+    } else {
+        button.classList.add('active');
+        activeButton = button;
+        renderOrderList(filter);
+    }
+    renderFilter(filter);
 }
 
 function renderFilter(filter) {
