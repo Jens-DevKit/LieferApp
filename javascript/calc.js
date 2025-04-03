@@ -89,33 +89,27 @@ function deliverCheck() {
 
 function sendSHOPPING_BAG() {
     const textContainer = document.getElementById('modalContent');
-        textContainer.innerHTML = "";
+    textContainer.innerHTML = "";
+
+    textContainer.innerHTML = textContentCreator();
+
+    document.body.classList.add('dontScroll');
+    document.getElementById('modal').classList.remove('backgroundOverlay');
+    saveSHOPPING_BAG();
+}
+
+function textContentCreator() {
     if (orderValue === 0 || activeDeliveryButton === null) {
-        
-
-
-        const textContent = `
-        <p style="font-size: 1.5em;"><strong>Fehler!</strong> <br><br>
-        <span style="font-size: 1em;">Prüfen Sie Ihre Waren und die Liefereinstellung. <br>
-        Danke für Ihr Verständnis!</span></p>
-    `;
-        
+        return `
+            <p style="font-size: 1.5em;"><strong>Fehler!</strong> <br><br>
+            <span style="font-size: 1em;">Prüfen Sie Ihre Waren und die Liefereinstellung. <br>
+            Danke für Ihr Verständnis!</span></p> 
+        `;
     } else {
-        
-
-
-        const textContent = `
-        <p style="font-size: 1.5em;"><strong>Fehler!</strong> <br><br>
-        <span style="font-size: 1em;">Leider konnten wir die Bestellung nicht weiterleiten, bitte versuchen sie es
-        später noch einmal. <br>
-        Danke für Ihr Verständnis!</span></p>
-        
-    `;
-        
-        deleteBasket();
-    }
-
-        document.body.classList.add('dontScroll');
-        document.getElementById('modal').classList.remove('backgroundOverlay');
-        saveSHOPPING_BAG();
+        return `
+            <p style="font-size: 1.5em;"><strong>Fehler!</strong> <br><br>
+            <span style="font-size: 1em;">Leider konnten wir die Bestellung nicht weiterleiten, bitte versuchen sie es
+            später noch einmal. <br>
+            Danke für Ihr Verständnis!</span></p>
+        `;}
 }
