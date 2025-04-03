@@ -113,7 +113,7 @@ const ORDER_LIST = [
         price: 1.99,
     },
     {
-        id: '82',
+        id: '83',
         name: 'Erdbeer Eis',
         text: '1 Kugel Erdbeereis',
         filter: ['dessert', 'halal', 'vegetarisch', 'kids menü', 'kinder', 'kleiner hunger'],

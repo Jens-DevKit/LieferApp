@@ -60,92 +60,65 @@ function searchFood() {
 function displayFood(list) {
     const CONTAINER = document.getElementById('containerOrder');
     CONTAINER.innerHTML = "";
+    list.forEach(i => CONTAINER.appendChild(Object.assign(document.createElement('div'), { className: 'menuCard', innerHTML: generateFoodContent(i) })));
+}
 
-    list.forEach((i) => {
-        const order = document.createElement('div');
-        order.classList.add('menuCard');
-
-        const orderContent = `
-            <div>
-                <h4>${i.name}</h4>
-                <p>${i.text}</p>
-                <div>${i.price}€</div>
-            </div>
-            <div>
-                <button onclick="pushBasket('${i.id}')">
-                    <img class="iconImg" src="./img/addbutton.png" alt="Add button">
-                </button>
-            </div>
-        `;
-        order.innerHTML = orderContent;
-
-        CONTAINER.appendChild(order);
-    });
+function generateFoodContent(i) {
+    return `
+        <div>
+            <h4>${i.name}</h4>
+            <p>${i.text}</p>
+            <div>${i.price}€</div>
+        </div>
+        <button onclick="pushBasket('${i.id}')">
+            <img class="iconImg" src="./img/addbutton.png" alt="Add button">
+        </button>
+    `;
 }
 
 function toggleFilter(filter, button) {
-    if (activeButton && activeButton !== button) {
-        activeButton.classList.remove('active');
-    }
-
-    if (activeButton === button) {
-        button.classList.remove('active');
-        activeButton = null;
-        renderOrderList('alle');
-        filter = ('all');
-    } else {
-        button.classList.add('active');
-        activeButton = button;
-        renderOrderList(filter);
-    }
-    renderFilter(filter);
+    if (activeButton) activeButton.classList.toggle('active', activeButton !== button);
+    activeButton = activeButton === button ? null : button;
+    renderOrderList(activeButton ? filter : 'all');
+    renderFilter(activeButton ? filter : 'all');
 }
 
 function renderFilter(filter) {
     const result = filterImg.find(item => item.filter === filter);
-    const showFilterLogo = document.getElementById('filterContainer');
-    showFilterLogo.innerHTML = "";
+    document.getElementById('filterContainer').innerHTML = "";
+    result ? createFilterElements(result) : renderFilter('all');
+}
 
-    if (result) {
-        const imgElement = document.createElement("img");
-        imgElement.src = result.picture;
-        imgElement.classList.add('imgContainer');
-        const nameElement = document.createElement("h2");
-        nameElement.textContent = result.name;
-
-        filterContainer.appendChild(imgElement);
-        filterContainer.appendChild(nameElement);
-    } else {
-        renderFilter(all)
-    }
+function createFilterElements(result) {
+    const imgElement = Object.assign(document.createElement("img"), { src: result.picture, className: 'imgContainer' });
+    const nameElement = Object.assign(document.createElement("h2"), { textContent: result.name });
+    filterContainer.append(imgElement, nameElement);
 }
 
 function renderOrderList(filterCategory = 'alle') {
     const CONTAINER = document.getElementById('containerOrder');
     CONTAINER.innerHTML = "";
-
-    const filteredList = filterFood(filterCategory);
-
-    filteredList.forEach((i) => {
+    filterFood(filterCategory).forEach(i => {
         const order = document.createElement('div');
         order.classList.add('menuCard');
-
-        const orderContent = `
-            <div>
-                <h4>${i.name}</h4>
-                <p>${i.text}</p>
-                <div>${i.price}€</div>
-            </div>
-            <div>
-                <button onclick="pushBasket('${i.id}')">
-                    <img class="iconImg" src="./img/addbutton.png" alt="Add button">
-                </button>
-            </div>
-        `;
-        order.innerHTML = orderContent;
-
+        order.innerHTML = generateOrderContent(i);
         CONTAINER.appendChild(order);
     });
+}
+
+function generateOrderContent(i) {
+    return `
+        <div>
+            <h4>${i.name}</h4>
+            <p>${i.text}</p>
+            <div>${i.price}€</div>
+        </div>
+        <div>
+            <button onclick="pushBasket('${i.id}')">
+                <img class="iconImg" src="./img/addbutton.png" alt="Add button">
+            </button>
+        </div>
+    `;
 }
 
 function filterFood(category) {
@@ -195,32 +168,21 @@ function renderBasket() {
 
     SHOPPING_BAG.forEach((i) => {
         const bag = document.createElement('div');
-        bag.classList.add('basketCard');
-        bag.classList.add('padding');
-
-        const totalPrice = (i.price * i.quantity).toFixed(2);
-
-        const bagContent = `
-            <button onclick="pushBasket('${i.id}')">
-                <img class="iconImg" src="./img/addbutton.png" alt="">
-            </button>
-            <div>
-                ${i.name} 
-                <div>Preis: ${totalPrice}€</div>
-                <div>Menge: ${i.quantity}</div>
-            </div>
-            <div>
-                <button onclick="popBasket('${i.id}')">
-                    <img class="iconImg" src="./img/supbutton.png" alt="">
-                </button>
-            </div>
-        `;
-        bag.innerHTML = bagContent;
+        bag.classList.add('basketCard', 'padding');
+        bag.innerHTML = generateBasketContent(i);
         document.getElementById('buyBtn').classList.add('activeBtn');
         SHOPPING_CONTAINER.appendChild(bag);
     });
-
+    
     renderPrice();
+}
+
+function generateBasketContent(i) {
+    return `
+        <button onclick="pushBasket('${i.id}')"><img class="iconImg" src="./img/addbutton.png"></button>
+        <div>${i.name}<div>Preis: ${(i.price * i.quantity).toFixed(2)}€</div><div>Menge: ${i.quantity}</div></div>
+        <button onclick="popBasket('${i.id}')"><img class="iconImg" src="./img/supbutton.png"></button>
+    `;
 }
 
 function saveSHOPPING_BAG() {
