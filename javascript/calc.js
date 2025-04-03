@@ -32,7 +32,7 @@ function renderPrice() {
             <p>Lieferkosten:</p><p></p><p style="text-align: end;"><strong>${delieverPrice}€</strong></p>
         </div>
     `;
-
+    isUpdatingPrice = false;
     document.getElementById('totalPriceContainer').innerHTML = `<h3 class="center">Zum Bezahlen: ${totalPrice}€</h3>`;
     document.getElementById('buyBtn').classList.toggle('activeBtn', orderValue !== 0);
     document.getElementById('shoppingCartBtn').classList.add('activeBtn');
