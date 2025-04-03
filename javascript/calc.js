@@ -88,10 +88,10 @@ function deliverCheck() {
 }
 
 function sendSHOPPING_BAG() {
-
-    if (orderValue === 0 || activeDeliveryButton === null) {
-        const textContainer = document.getElementById('modalContent');
+    const textContainer = document.getElementById('modalContent');
         textContainer.innerHTML = "";
+    if (orderValue === 0 || activeDeliveryButton === null) {
+        
 
 
         const textContent = `
@@ -99,12 +99,9 @@ function sendSHOPPING_BAG() {
         <span style="font-size: 1em;">Prüfen Sie Ihre Waren und die Liefereinstellung. <br>
         Danke für Ihr Verständnis!</span></p>
     `;
-        textContainer.innerHTML = textContent;
-        document.body.classList.add('dontScroll');
-        document.getElementById('modal').classList.remove('backgroundOverlay');
+        
     } else {
-        const textContainer = document.getElementById('modalContent');
-        textContainer.innerHTML = "";
+        
 
 
         const textContent = `
@@ -114,10 +111,11 @@ function sendSHOPPING_BAG() {
         Danke für Ihr Verständnis!</span></p>
         
     `;
-        textContainer.innerHTML = textContent;
+        
+        deleteBasket();
+    }
+
         document.body.classList.add('dontScroll');
         document.getElementById('modal').classList.remove('backgroundOverlay');
         saveSHOPPING_BAG();
-        deleteBasket();
-    }
 }

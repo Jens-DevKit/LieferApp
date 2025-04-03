@@ -49,7 +49,7 @@ function renderOrderList(filterCategory = 'alle') {
                 <div>${i.price}€</div>
             </div>
             <div>
-                <button onclick="pushBasket('${i.id}')">
+                <button onclick="pushBasket('${i.id}')" class="contentFit">
                     <img class="iconImg" src="./img/addbutton.png" alt="Add button">
                 </button>
             </div>

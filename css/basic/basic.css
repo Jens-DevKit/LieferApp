@@ -25,6 +25,10 @@ input {
     border-radius: 8px;
 }
 
+.contentFit {
+    height: fit-content;
+}
+
 .activeBtn {
     font-size: 1.2em;
     background-color: rgba(0, 233, 0, 0.646);

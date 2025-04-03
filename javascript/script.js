@@ -70,9 +70,11 @@ function generateFoodContent(i) {
             <p>${i.text}</p>
             <div>${i.price}€</div>
         </div>
-        <button onclick="pushBasket('${i.id}')">
-            <img class="iconImg" src="./img/addbutton.png" alt="Add button">
-        </button>
+        <div>
+            <button class="contentFit" onclick="pushBasket('${i.id}')">
+                <img class="iconImg" src="./img/addbutton.png" alt="Add button">
+            </button>
+        </div>
     `;
 }
 
@@ -98,27 +100,13 @@ function createFilterElements(result) {
 function renderOrderList(filterCategory = 'alle') {
     const CONTAINER = document.getElementById('containerOrder');
     CONTAINER.innerHTML = "";
+
     filterFood(filterCategory).forEach(i => {
         const order = document.createElement('div');
         order.classList.add('menuCard');
-        order.innerHTML = generateOrderContent(i);
+        order.innerHTML = generateFoodContent(i);
         CONTAINER.appendChild(order);
     });
-}
-
-function generateOrderContent(i) {
-    return `
-        <div>
-            <h4>${i.name}</h4>
-            <p>${i.text}</p>
-            <div>${i.price}€</div>
-        </div>
-        <div>
-            <button onclick="pushBasket('${i.id}')">
-                <img class="iconImg" src="./img/addbutton.png" alt="Add button">
-            </button>
-        </div>
-    `;
 }
 
 function filterFood(category) {
@@ -173,15 +161,15 @@ function renderBasket() {
         document.getElementById('buyBtn').classList.add('activeBtn');
         SHOPPING_CONTAINER.appendChild(bag);
     });
-    
+
     renderPrice();
 }
 
 function generateBasketContent(i) {
     return `
-        <button onclick="pushBasket('${i.id}')"><img class="iconImg" src="./img/addbutton.png"></button>
+        <button class="contentFit" onclick="pushBasket('${i.id}')"><img class="iconImg" src="./img/addbutton.png"></button>
         <div>${i.name}<div>Preis: ${(i.price * i.quantity).toFixed(2)}€</div><div>Menge: ${i.quantity}</div></div>
-        <button onclick="popBasket('${i.id}')"><img class="iconImg" src="./img/supbutton.png"></button>
+        <button class="contentFit" onclick="popBasket('${i.id}')"><img class="iconImg" src="./img/supbutton.png"></button>
     `;
 }
 

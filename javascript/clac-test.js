@@ -96,3 +96,38 @@ function pickup(button) {
     }
     renderPrice();
 }
+
+function sendSHOPPING_BAG() {
+
+    if (orderValue === 0 || activeDeliveryButton === null) {
+        const textContainer = document.getElementById('modalContent');
+        textContainer.innerHTML = "";
+
+
+        const textContent = `
+        <p style="font-size: 1.5em;"><strong>Fehler!</strong> <br><br>
+        <span style="font-size: 1em;">Prüfen Sie Ihre Waren und die Liefereinstellung. <br>
+        Danke für Ihr Verständnis!</span></p>
+    `;
+        textContainer.innerHTML = textContent;
+        document.body.classList.add('dontScroll');
+        document.getElementById('modal').classList.remove('backgroundOverlay');
+    } else {
+        const textContainer = document.getElementById('modalContent');
+        textContainer.innerHTML = "";
+
+
+        const textContent = `
+        <p style="font-size: 1.5em;"><strong>Fehler!</strong> <br><br>
+        <span style="font-size: 1em;">Leider konnten wir die Bestellung nicht weiterleiten, bitte versuchen sie es
+        später noch einmal. <br>
+        Danke für Ihr Verständnis!</span></p>
+        
+    `;
+        textContainer.innerHTML = textContent;
+        document.body.classList.add('dontScroll');
+        document.getElementById('modal').classList.remove('backgroundOverlay');
+        saveSHOPPING_BAG();
+        deleteBasket();
+    }
+}

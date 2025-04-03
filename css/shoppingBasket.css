@@ -16,11 +16,12 @@
 .basketCard {
     display: flex;
     justify-content: space-between;
-    text-align: center;
+    align-items: center;
     padding: 8px;
     border: solid rgba(100, 208, 183, 0.7);
     border-radius: 8px;
     margin: 8px;
+    text-align: center;
 }
 
 .deliverGrid {
