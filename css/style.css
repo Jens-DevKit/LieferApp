@@ -15,6 +15,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .contents {
@@ -50,7 +51,7 @@
 }
 
 .iconShoppingCart {
-    height: 2em;
+    height: 1.6em;
 }
 
 .placeholder {
@@ -136,4 +137,11 @@
 
 .backgroundOverlay {
     z-index: -1;
+}
+
+.linkContainer {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
 }
